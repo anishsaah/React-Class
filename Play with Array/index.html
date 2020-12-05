@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playing with Array </title>
+</head>
+<body>
+    <h1 id="check">Check the console.</h1>
+</body>
+<script>
+    console.log('Array is Fun');
+    console.log("Simply an Array")
+    var favouritePlace=  ["Biratnagar", "Lalitpur", "Patan", "Kathmandu","Pokhara","Palpa"]
+    console.log(favouritePlace)
+    console.log("this is an array with length")
+    console.log(favouritePlace.length)
+    console.log("adding two more places on it")
+    favouritePlace.push('Chitwan',"Parbat")
+    console.log(favouritePlace)
+    console.log("Sorted Array /acc to Alphabet")
+    favouritePlace.sort()
+    console.log(favouritePlace.length);
+    console.log(favouritePlace)
+    var favouritePlace=  ["Biratnagar", "Lalitpur", "Patan", "Kathmandu","Pokhara","Palpa"]
+    console.log("removing Kathmandu")
+    favouritePlace.splice(3,1)//this or
+    delete favouritePlace[2]//this
+    console.log(favouritePlace)
+</script>
+</html>

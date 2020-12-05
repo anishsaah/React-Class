@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        padding: 10px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .container{
+        width: 50%;
+        margin: auto;
+        border-radius: 30px;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(3, 47, 85);
+        padding:50px ;
+        text-align: center;
+    }
+    label{
+        font-size: 40px;
+    }
+    input{
+        height: 40px;
+    }
+    h1{
+        color: white;
+        text-align: center;
+        font-size: 40px;
+    }
+    p{
+        font-family: Arial, Helvetica, sans-serif;
+        letter-spacing: 3px;
+    }
+    #total,#tipmoney{
+        color: black;
+    }
+</style>
+<body>
+    <h1>Tip Calculator</h1>
+    <div class="container">
+        <label>Coffee</label><br>
+        <input type="text" id="one"><br>
+        <label>Bread</label><br>
+        <input type="text" id="two"><br>
+        <label>Milk Tea</label><br>
+        <input type="text" id="three"><br>
+        <label>Water</label><br>
+        <input type="text" id="four"><br><br>
+        <button id="btn1">Submit</button><br>
+        <div id="total">
+
+        </div><br>
+        <p>Tip % ,you want to give..</p>
+        <input type="text" id="five" placeholder="in percentage...."><br>
+        <button id="btn2">Tip money ?</button><br>
+        <div id="tipmoney"></div>
+    </div>
+</body>
+<script>
+    one = document.getElementById('one')
+    var two = document.getElementById('two')
+    var three = document.getElementById('three')
+    var four = document.getElementById('four')
+
+    clickedbtn = document.getElementById('btn1')
+
+    
+    clickedbtn.addEventListener('click',()=>{
+
+        var total = parseInt(one.value) +parseInt(two.value) +parseFloat(three.value)+parseFloat(four.value);
+        console.log(total)
+        localStorage.setItem('value',total)
+        document.getElementById('total').innerHTML=`<h1>The Total amount is Rs.${total}</h1>`
+
+    });
+        var total = localStorage.getItem('value')
+
+    var five = document.getElementById('five')
+    calcbtn = document.getElementById('btn2')
+
+    calcbtn.addEventListener('click',()=>{
+        const factor = total/100;
+
+        var money  = factor*parseInt(five.value)
+        console.log(money)
+        document.getElementById('tipmoney').innerHTML=`<h1>The Total tip to give is Rs.${money}</h1>`
+        localStorage.clear()
+
+});
+window.onload(
+    one.value="",
+    two.value="",
+    three.value="",
+    four.value="",
+    five.value="",
+)
+
+
+
+
+</script>
+</html>

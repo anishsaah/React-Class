@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock in JS</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+    body {
+  background-color: #03fafa;
+  align-items: center;
+  justify-content: center;
+  padding: 180px 20px;
+}
+
+#container {
+  color: rgb(5, 5, 5);
+  font-size: 120px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  font-family: 'Monoton', cursive;
+  
+}
+button{
+    border:none;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    background-color: black;
+    color:white
+}
+h1{
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+</style>
+<body>
+    <h1 id="h1">The current time is</h1>
+    <div id="container"> <button id="btn">Click me to see the time</button></div>
+   
+</body>
+
+<script>
+document.getElementById('h1').style.display="none";
+
+btn= document.getElementById('btn');
+
+btn.addEventListener('click',currentTime);
+
+
+function currentTime() {
+    document.getElementById('h1').style.display="block";
+
+    // btn.style.display="none"
+  var date = new Date(); 
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  var sec = date.getSeconds();
+  var kun = "AM";
+  kun = (hour >= 12) ? "PM" : "AM"; 
+  hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour); 
+  hour = updateTime(hour);
+  min = updateTime(min);
+  sec = updateTime(sec);
+  document.getElementById("container").innerText = hour + " : " + min + " : " + sec + "   " +" "+ kun; 
+  document.getElementById("container").style.border='5px solid black' 
+    var t = setTimeout(currentTime, 1000);
+}
+
+function updateTime(i) { 
+  if (i < 10) {
+    return "0" + i;
+  }
+  else {
+    return i;
+  }
+}
+
+</script>
+</html>

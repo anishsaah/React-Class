@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circumference Calc</title>
+</head>
+<style>
+    body{
+        background-color: rgb(210, 232, 252);
+        padding: 8%;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+       
+        background-color: white;
+        padding: 50px;
+        border-radius: 20px;
+        
+
+    }
+    #input{
+        border:none;
+        outline:none;
+        width: 400px;
+        font-size: 25px;
+        background-color: transparent;
+        border-bottom: 3px solid black;
+        margin:20px
+    }
+    button{
+    border:none;
+        margin:20px;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    background-color: black;
+    color:white
+}
+    #result{
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 30px;
+    }
+    h1{
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 50px;
+    }
+</style>
+<body>
+    <h1>Circumference Calculator</h1>
+    <div class="container">
+        <input type="text" placeholder="Enter the Radius Value" id="input"><br>
+        <button id ='btn'>Click to Calculate</button><br>
+        <div id="result"></div>
+    </div>
+</body>
+<script>
+
+    inputVal = document.getElementById('input');
+    console.log(inputVal.value)
+    var btn = document.getElementById('btn');
+
+    btn.addEventListener('click',()=>{Calc(inputVal.value)})
+
+    function Calc(inputVal){
+        console.log("hunxa hunxa gar na gar")
+        const PI = 3.14
+
+        var r= inputVal
+        var Result= 2*PI*r
+        console.log(Result)
+        document.getElementById('result').innerHTML=`<h1>The Circumference of Circle is ${Result} </h1>`
+    }
+</script>
+</html>
